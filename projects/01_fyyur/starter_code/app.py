@@ -288,13 +288,7 @@ def create_venue_submission():
     flash('An error occurred. Venue ' + venue.name + ' could not be listed.')
     abort(400)
   else:
-  
-    # on successful db insert, flash success
     flash('Venue ' + request.form['name'] + ' was successfully listed!')
-    # return jsonify(body)
-    # TODO: on unsuccessful db insert, flash an error instead.
-    # e.g., flash('An error occurred. Venue ' + data.name + ' could not be listed.')
-    # see: http://flask.pocoo.org/docs/1.0/patterns/flashing/
     return render_template('pages/home.html')
 
 @app.route('/venues/<venue_id>', methods=['DELETE'])
