@@ -5,7 +5,7 @@
 import json
 import dateutil.parser
 import babel
-from flask import Flask, render_template, request, Response, flash, redirect, url_for
+from flask import Flask, render_template, request, Response, flash, redirect, url_for, abort
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 import logging
@@ -178,7 +178,7 @@ def create_venue_submission():
     db.session.close()
   if error:
     flash('An error occurred. Venue ' + venue.name + ' could not be listed.')
-    # abort(400)
+    abort(400)
   else:
     flash('Venue ' + request.form['name'] + ' was successfully listed!')
     return render_template('pages/home.html')
@@ -342,7 +342,7 @@ def create_artist_submission():
     db.session.close()
   if error:
     flash('An error occurred. Artist ' + request.form['name']  + ' could not be listed.')
-    # abort(400)
+    abort(400)
   else:
     flash('Artist ' + request.form['name'] + ' was successfully listed!')
     return render_template('pages/home.html')
@@ -400,7 +400,7 @@ def create_show_submission():
     db.session.close()
   if error:
     flash('An error occurred. Show could not be listed.')
-    # abort(400)
+    abort(400)
   else:
     flash('Show was successfully listed!')
     return render_template('pages/home.html')
