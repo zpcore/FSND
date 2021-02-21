@@ -11,4 +11,3 @@ DEBUG = True
 
 # TODO IMPLEMENT DATABASE URL
 SQLALCHEMY_DATABASE_URI = 'postgres://pei@localhost:5432/fyyur'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://pei@localhost:5432/todoapp'
